@@ -7,60 +7,65 @@
 //  Atividade 1 - PEL2016
 //
 
+struct Module {
+    public var structure = [String]()
+    public var index = 0
+}
+
 class Stack{
-    private var structure = [String]()
-    private var index = 0
+    
+    var module = Module()
     
     func pop() {
-        if index-1 == -1 {
-            print("Stack is empty \(structure)")
+        if module.index-1 == -1 {
+            print("Stack is empty \(module.structure)")
         }else{
-            structure.remove(at: index-1)
-            index -= 1
-            print("Stack is \(structure) \n")
+            module.structure.remove(at: module.index-1)
+            module.index -= 1
+            print("Stack is \(module.structure) \n")
         }
     }
     
     func push(value:String) {
-        index += 1
-        structure.append(value)
-        print("Stack is \(structure) \n")
+        module.index += 1
+        module.structure.append(value)
+        print("Stack is \(module.structure) \n")
     }
     
     func top() {
-        if index == 0 {
-            print("Stack is empty \(structure) \n")
+        if module.index == 0 {
+            print("Stack is empty \(module.structure) \n")
         }else{
-            print("Stack Top Value : \(structure[index-1]) \n")
+            print("Stack Top Value : \(module.structure[module.index-1]) \n")
         }
     }
 }
 
 class Queue {
-    private var structure = [String]()
-    private var index = -1
+
+    var module = Module()
     
     func pop() {
-        if index == -1 {
-            print("Queue is empty \(structure) \n")
+        if module.index == -1 {
+            print("Queue is empty \(module.structure) \n")
         }else{
-            structure.remove(at: 0)
-            index -= 1
-            print("Queue is \(structure) \n")
+            module.structure.remove(at: 0)
+            module.index -= 1
+            print("Queue is \(module.structure) \n")
         }
     }
     
     func push(value:String) {
-        index += 1
-        structure.append(value)
-        print("Queue is \(structure) \n")
+        module.index += 1
+        module.structure.append(value)
+        print("Queue is \(module.structure) \n")
     }
     
     func top() {
-        if index == -1 {
-            print("Queue is empty \(structure) \n")
+        if module.index == -1 {
+            print("Queue is empty \(module.structure) \n")
         }else{
-            print("Queue Top Value : \(structure[0]) \n")
+            print("Queue Top Value : \(module.structure[0]) \n")
         }
     }
 }
