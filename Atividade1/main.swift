@@ -9,18 +9,18 @@
 
 struct Module {
     public var structure = [String]()
-    public var index = 0
+    public var index = -1
 }
 
 class Stack{
     
-    var module = Module()
+    private var module = Module()
     
     func pop() {
-        if module.index-1 == -1 {
+        if module.index == -1 {
             print("Stack is empty \(module.structure)")
         }else{
-            module.structure.remove(at: module.index-1)
+            module.structure.remove(at: module.index)
             module.index -= 1
             print("Stack is \(module.structure) \n")
         }
@@ -33,17 +33,17 @@ class Stack{
     }
     
     func top() {
-        if module.index == 0 {
+        if module.index == -1 {
             print("Stack is empty \(module.structure) \n")
         }else{
-            print("Stack Top Value : \(module.structure[module.index-1]) \n")
+            print("Stack Top Value : \(module.structure[module.index]) \n")
         }
     }
 }
 
 class Queue {
 
-    var module = Module()
+    private var module = Module()
     
     func pop() {
         if module.index == -1 {
@@ -73,6 +73,8 @@ class Queue {
 var stack = Stack()
 var queue = Queue()
 
+print("========================== STACK TESTS ========================== \n")
+
 stack.push(value: "brenno")
 stack.push(value: "ellen")
 stack.push(value: "tadeu")
@@ -89,7 +91,9 @@ stack.pop()
 stack.pop()
 stack.pop()
 stack.top()
+print("================================================================= \n")
 
+print("========================== QUEUE TESTS ========================== \n")
 queue.push(value: "Brenno")
 queue.push(value: "Ellen")
 queue.push(value: "Tadeu")
@@ -102,3 +106,4 @@ queue.top()
 
 queue.pop()
 queue.top()
+print("================================================================= \n")
